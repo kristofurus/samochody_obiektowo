@@ -1,3 +1,3 @@
-﻿  SamochodowoObiektowo.cpp
-c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(37): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+﻿  SportCar.cpp
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\sportcar.cpp(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   SamochodowoObiektowo.vcxproj -> C:\Users\krist\source\repos\SamochodowoObiektowo\Debug\SamochodowoObiektowo.exe

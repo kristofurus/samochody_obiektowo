@@ -49,7 +49,7 @@ public:
 
 #pragma endregion
 
-#pragma region Functions
+#pragma region Methods
 
 public:
 	void turnEngineOn() { run = true; } //uruchamia silnik

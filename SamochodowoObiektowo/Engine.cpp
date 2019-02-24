@@ -139,7 +139,7 @@ void Engine::setTorque()
 
 #pragma endregion
 
-#pragma region Funtions
+#pragma region Methods
 
 void Engine::showEngineInfo()
 {
@@ -161,6 +161,7 @@ void Engine::newEngine()
 	setCapacity();
 	//ustawia moment pedu
 	setTorque();
+	//ustawia czy silnik uruchomiony na falsz
 	setRun(0);
 }
 

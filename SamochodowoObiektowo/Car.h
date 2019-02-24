@@ -11,6 +11,7 @@ class Car
 
 #pragma region Variables
 
+private:
 	Engine cars_engine; //silnik z klasy Engine
 	string mark; //marka samochodu
 	string name; //nazwa samochodu
@@ -70,7 +71,7 @@ public:
 
 #pragma endregion
 
-#pragma region Functions
+#pragma region Methods
 
 public:
 	void newCar(); //tworzy nowy samochod

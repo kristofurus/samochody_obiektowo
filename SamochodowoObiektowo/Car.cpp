@@ -178,7 +178,7 @@ void Car::setLuggageCapacity()
 
 #pragma endregion
 
-#pragma region Functions
+#pragma region Methods
 
 void Car::newCar()
 {
@@ -210,6 +210,7 @@ void Car::newCar()
 void Car::showCarInfo()
 {
 	system("cls");
+	cars_engine.showEngineInfo();
 	cout << "CAR INFO\n";
 	cout << "Mark: " << mark << "\n";
 	cout << "Name: " << name << "\n";
@@ -220,8 +221,6 @@ void Car::showCarInfo()
 	cout << "Deceleration: " << deceleration << "km/h\n";
 	cout << "Number of seats: " << num_of_seats << "\n";
 	cout << "Luggage capacity: " << luggage_capacity << "L\n";
-	cars_engine.showEngineInfo();
-	_getch();
 }
 
 void Car::changeColour()

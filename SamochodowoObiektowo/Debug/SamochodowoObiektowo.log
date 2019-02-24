@@ -1,3 +1,5 @@
-﻿  SportCar.cpp
-c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\sportcar.cpp(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  SamochodowoObiektowo.cpp
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(195): warning C4018: '<': signed/unsigned mismatch
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(201): warning C4018: '<': signed/unsigned mismatch
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(207): warning C4018: '<': signed/unsigned mismatch
   SamochodowoObiektowo.vcxproj -> C:\Users\krist\source\repos\SamochodowoObiektowo\Debug\SamochodowoObiektowo.exe

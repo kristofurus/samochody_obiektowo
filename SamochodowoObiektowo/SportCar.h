@@ -7,10 +7,10 @@ class SportCar :
 
 #pragma region Variables
 
+private:
 	unsigned int num_of_wins;
 
 #pragma endregion
-
 
 #pragma region Constructor and Destructor
 

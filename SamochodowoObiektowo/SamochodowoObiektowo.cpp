@@ -26,7 +26,8 @@ zaraz w takim razie sie z tego jeszcze baza danych zrobi normalnie XD baza silni
 i ich laczenie (az sie zadanie na Accessa przypomina)
 */
 
-int mainMenu() //odpowiada za wybranie opcji z glownego menu
+//odpowiada za wybranie opcji z glownego menu
+int mainMenu()
 {
 	int decision;
 	cout << "MAIN MENU\n";
@@ -52,7 +53,8 @@ int mainMenu() //odpowiada za wybranie opcji z glownego menu
 	return decision;
 }
 
-int editCar() //odpowiada za wybranie samochodu do edycji
+//odpowiada za wybranie samochodu do edycji
+int editCar()
 {
 	int decision;
 	cout << "Choose car:\n";
@@ -72,10 +74,11 @@ int editCar() //odpowiada za wybranie samochodu do edycji
 
 int main()
 {	
+	//glowne vectory do przechowywania podanych przez uzytkownika danych
 	vector <Car> cars;
 	vector <SportCar> sport_cars;
 	vector <FamilyCar> family_cars;
-
+	//vectory do chwilowego przechowywania danych przy edycji elementow wewnatrz vectora glownego
 	vector <Car> tmp_cars_vector;
 	vector <SportCar> tmp_sport_cars_vector;
 	vector <FamilyCar> tmp_family_cars_vector;
@@ -84,6 +87,7 @@ int main()
 	int edit_option; //do wyboru typu samochodu do edycji
 	int car_edit_number; //do wyboru numeru samochodu do edycji
 
+	//chwilowe zmienne klasowe umozliwiajace tworzenie i edycje elementow znajdujacych sie w odpowiednich vecorach
 	Car car_tmp("", 0, 0.0, 0, false, "", "", "", 0, 0, 0, 0, 0, 0, 0.0);
 	SportCar sport_car_tmp("", 0, 0.0, 0, false, "", "", "", 0, 0, 0, 0, 0, 0, 0.0);
 	FamilyCar family_car_tmp("", 0, 0.0, 0, false, "", "", "", 0, 0, 0, 0, 0, 0, 0.0);
@@ -95,95 +99,142 @@ int main()
 		switch (decision)
 		{
 		case 1:
+			//tworzenie nowego samochodu
 			car_tmp.newCar();
 			cars.push_back(car_tmp);
 			break;
 		case 2:
+			//tworzenie nowego samochodu sportowego
 			sport_car_tmp.newSportCar();
 			sport_cars.push_back(sport_car_tmp);
 			break;
 		case 3:
+			//tworzenie nowego samochodu rodzinnego
 			family_car_tmp.newFamilyCar();
 			family_cars.push_back(family_car_tmp);
 			break;
 		case 4:
-			car_tmp = cars[sport_cars.size() - 1];
-			car_tmp.showCarInfo();
+			//wyswietlanie pelnych infomacji o ostatnio stworzonym samochodzie 
+			if (cars.size())
+			{
+				car_tmp = cars[cars.size() - 1];
+				car_tmp.showCarInfo();
+			}
+			else
+				cout << "Add some cars first!\n";
+			break;
 		case 5:
-			sport_car_tmp = sport_cars[sport_cars.size()-1];
-			sport_car_tmp.showSportCarInfo();
+			//wyswietlanie pelnych infomacji o ostatnio stworzonym samochodzie sportowym
+			if (sport_cars.size())
+			{
+				sport_car_tmp = sport_cars[sport_cars.size()-1];
+				sport_car_tmp.showSportCarInfo();
+			}
+			else
+				cout << "Add some sport cars first!\n";
 			break;
 		case 6:
-			family_car_tmp = family_cars[family_cars.size() - 1];
-			family_car_tmp.showFamilyCarInfo();
+			//wyswietlanie pelnych infomacji o ostatnio stworzonym samochodzie rodzinnym
+			if (family_cars.size())
+			{
+				family_car_tmp = family_cars[family_cars.size() - 1];
+				family_car_tmp.showFamilyCarInfo();
+			}
+			else
+				cout << "Add some family cars first!\n";
 			break;
 		case 7:
+			//edycja wybranego samochodu
 			switch (edit_option = editCar())
 			{
 			case 0:
 				break;
 			case 1:
+				//wybranie i edycja odpowiedniego elementu z vectora
 				cout << "Choose car number from: 1 to  " << cars.size() << "\n";
 				cout << "Choice: ";
 				cin >> car_edit_number;
 				car_tmp = cars[car_edit_number - 1];
 				car_tmp.newCar();
+				//przepisywanie elementow od pierwszego do edytowanego do chwilowego vectora
 				for (int i = 0; i < car_edit_number - 1; i++)
 				{
 					tmp_cars_vector.push_back(cars[i]);
 				}
+				//przepisanie do chwilowego vectora edytowanego elementu
 				tmp_cars_vector.push_back(car_tmp);
+				//przepisywanie wszystkich elementow z chwilowego vectora do glownego
 				for (unsigned int i = car_edit_number; i < cars.size(); i++)
 				{
 					tmp_cars_vector.push_back(cars[i]);
 				}
+				//czyszczenie glownego vectora
 				cars.clear();
+				//przepisywanie wszystkich elementow z chwilowego vectora do glownego
 				for (unsigned int i = 0; i < tmp_cars_vector.size(); i++)
 				{
 					cars.push_back(tmp_cars_vector[i]);
 				}
+				//czyszczenie chwilowego vectora
+				tmp_cars_vector.clear();
 				break;
 			case 2:
+				//wybranie i edycja odpowiedniego elementu z vectora
 				cout << "Choose sport car number from: 1 to  " << sport_cars.size() << "\n";
 				cout << "Choice: ";
 				cin >> car_edit_number;
 				sport_car_tmp = sport_cars[car_edit_number - 1];
 				sport_car_tmp.newSportCar();
+				//przepisywanie elementow od pierwszego do edytowanego do chwilowego vectora
 				for (int i = 0; i < car_edit_number - 1; i++)
 				{
 					tmp_sport_cars_vector.push_back(sport_cars[i]);
 				}
+				//przepisanie do chwilowego vectora edytowanego elementu
 				tmp_sport_cars_vector.push_back(sport_car_tmp);
+				//przepisywanie elementow od edytowanego do ostatniego z glownego vectora do chwilowego vectora
 				for (unsigned int i = car_edit_number; i < sport_cars.size(); i++)
 				{
 					tmp_sport_cars_vector.push_back(sport_cars[i]);
 				}
+				//czyszczenie glownego vectora
 				sport_cars.clear();
+				//przepisywanie wszystkich elementow z chwilowego vectora do glownego
 				for (unsigned int i = 0; i < tmp_sport_cars_vector.size(); i++)
 				{
 					sport_cars.push_back(tmp_sport_cars_vector[i]);
 				}
+				//czyszczenie chwilowego vectora
+				tmp_sport_cars_vector.clear();
 				break;
 			case 3:
+				//wybranie i edycja odpowiedniego elementu z vectora
 				cout << "Choose sport car number from: 1 to  " << family_cars.size() << "\n";
 				cout << "Choice: ";
 				cin >> car_edit_number;
 				family_car_tmp = family_cars[car_edit_number - 1];
 				family_car_tmp.newFamilyCar();
+				//przepisywanie elementow od pierwszego do edytowanego do chwilowego vectora
 				for (int i = 0; i < car_edit_number - 1; i++)
 				{
 					tmp_family_cars_vector.push_back(family_cars[i]);
 				}
+				//przepisanie do chwilowego vectora edytowanego elementu
 				tmp_family_cars_vector.push_back(family_car_tmp);
+				//przepisywanie wszystkich elementow z chwilowego vectora do glownego
 				for (unsigned int i = car_edit_number; i < family_cars.size(); i++)
 				{
 					tmp_family_cars_vector.push_back(family_cars[i]);
 				}
+				//czyszczenie glownego vectora
 				family_cars.clear();
+				//przepisywanie wszystkich elementow z chwilowego vectora do glownego
 				for (unsigned int i = 0; i < tmp_family_cars_vector.size(); i++)
 				{
 					family_cars.push_back(tmp_family_cars_vector[i]);
 				}
+				//czyszczenie chwilowego vectora
+				tmp_family_cars_vector.clear();
 				break;
 			default:
 				cout << "Something went wrong!\n";
@@ -191,6 +242,7 @@ int main()
 			}
 			break;
 		case 8:
+			//wyswietlanie marki i nazwy wszystkich utworzonych samochodow
 			cout << "Cars:\n";
 			for (int i = 0; i < cars.size(); i++)
 			{

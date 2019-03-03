@@ -6,23 +6,42 @@
 
 using namespace std;
 
+//! \class Car
+/*!
+	Klasa Car przechowywujaca podstawowe dane o samochodzie. Jest klasa bazowa klas SportCar i FamilyCar.
+	Posiada funkcje pozwalajace na tworzenie nowego samochodu, zmiany koloru, pokazywania podanych parametrow,
+	zmiany stanu silnika na on lub off oraz zmianny predkosci poprzez podane acceleration, deceleration,
+	lub wyzerowanie predkosci funkcja breakCar().
+*/
+
 class Car
 {
 
 #pragma region Variables
 
 private:
-	Engine cars_engine; //silnik z klasy Engine
-	string mark; //marka samochodu
-	string name; //nazwa samochodu
-	string colour; //kolor samochodu
-	unsigned int max_speed; //maksymalna predkosc
-	int min_speed; //minimalna predkosc
-	unsigned int acceleration; //przyspieszenie pojazdu
-	unsigned int deceleration; //zwalnianie pojazdu
-	int actual_speed; //aktualna predkosc samochodu
-	unsigned int num_of_seats; //ilosc siedzen
-	float luggage_capacity; //pojemnosc bagaznika [L]
+	/**silnik z klasy Engine*/
+	Engine cars_engine;
+	/**marka samochodu*/
+	string mark; 
+	/**nazwa samochodu*/
+	string name; 
+	/**kolor samochodu*/
+	string colour;
+	/**maksymalna predkosc*/
+	unsigned int max_speed;
+	/**minimalna predkosc*/
+	int min_speed;
+	/**przyspieszenie pojazdu*/
+	unsigned int acceleration;
+	/**zwalnianie pojazdu*/
+	unsigned int deceleration;
+	/**aktualna predkosc samochodu*/
+	int actual_speed;
+	/**ilosc siedzen*/
+	unsigned int num_of_seats; 
+	/**pojemnosc bagaznika [L]*/
+	float luggage_capacity; 
 	//numer rejestracyjny?
 
 #pragma endregion
@@ -30,58 +49,96 @@ private:
 #pragma region Getter
 
 public:
-	Engine getCarsEngine() { return cars_engine; } //zwraca silnik
-	string getMark() { return mark; } //zwraca marke
-	string getName() { return name; } //zwraca nazwe pojazdu
-	string getColour() { return colour; } //zwraca kolor
-	unsigned int getMaxSpeed() { return max_speed; } //zwraca maksymalna predkosc
-	int getMinSpeed() { return min_speed; } //zwraca minimalna predkosc
-	unsigned int getAcceleration() { return acceleration; } //zwraca przyspieszenie
-	unsigned int getDeceleration() { return deceleration; } //zwraca wartosc spowolnienia 
-	int getActualSpeed() { return actual_speed; } //zwraca aktualna predkosc
-	unsigned int getNumOfSeats() { return num_of_seats; } //zwraca ilosc siedzen
-	float getLuggageCapacity() { return luggage_capacity; } //zwraca pojemnosc bagaznika
+	/** getter zwracajacy parametry silnika*/
+	Engine getCarsEngine() { return cars_engine; }
+	/**getter zwracajacy marke samochodu*/
+	string getMark() { return mark; }
+	/**getter zwracajacy nazwe pojazdu*/
+	string getName() { return name; }
+	/**getter zwracajacy kolor*/
+	string getColour() { return colour; }
+	/**zwraca maksymalna predkosc*/
+	unsigned int getMaxSpeed() { return max_speed; }
+	/**zwraca minimalna predkosc*/
+	int getMinSpeed() { return min_speed; } 
+	/**zwraca przyspieszenie*/
+	unsigned int getAcceleration() { return acceleration; }
+	/**zwraca wartosc spowolnienia*/
+	unsigned int getDeceleration() { return deceleration; }
+	/**zwraca aktualna predkosc*/
+	int getActualSpeed() { return actual_speed; } 
+	/**zwraca ilosc siedzen*/
+	unsigned int getNumOfSeats() { return num_of_seats; }
+	/**zwraca pojemnosc bagaznika*/
+	float getLuggageCapacity() { return luggage_capacity; } 
 
 #pragma endregion
 
 #pragma region Setter
 
 public:
-	void setCarsEngine(); //ustawia silnik (korzystajac z newEngine())
-	void setMark(); //ustawia marke samochodu
-	void setName(); //ustawia nazwe
-	void setColour(); //ustawia kolor
-	void setMaxSpeed(); //ustawia maksymalna predkosc
-	void setMinSpeed(); //ustawia minimalna predkosc
-	void setAcceleration(); //ustawia przyspieszenie 
-	void setDeceleration(); //ustawia spowolnienie
-	void setActualSpeed(int c_actual_speed) { actual_speed = c_actual_speed; } //ustawia aktualna predkosc
-	void setNumOfSeats(); //ustawia ilosc siedzen
-	void setLuggageCapacity(); //ustawia pojemnosc bagaznika
+	/**ustawia silnik (korzystajac z newEngine())*/
+	void setCarsEngine();
+	/**ustawia marke samochodu*/
+	void setMark();
+	/**ustawia nazwe*/
+	void setName();
+	/**ustawia kolor*/
+	void setColour();
+	/**ustawia maksymalna predkosc*/
+	void setMaxSpeed();
+	/**ustawia minimalna predkosc*/
+	void setMinSpeed();
+	/**ustawia przyspieszenie*/
+	void setAcceleration();
+	/**ustawia spowolnienie*/
+	void setDeceleration();
+	/**ustawia aktualna predkosc*/
+	void setActualSpeed(int actual_speed) { this -> actual_speed = actual_speed; }
+	/**ustawia ilosc siedzen*/
+	void setNumOfSeats();
+	/**ustawia pojemnosc bagaznika*/
+	void setLuggageCapacity();
 
 #pragma endregion
 
 #pragma region Constructor and Destructor
 
 public:
-	Car(string eng_type = NULL, int eng_power = NULL, float eng_capacity = NULL, int eng_torque = NULL, bool eng_run = 0, string c_mark = NULL,
-		string c_name = NULL, string c_colour = NULL, unsigned int c_max_speed = 0, int c_min_speed = 0, unsigned int c_acceleration = 0,
-		unsigned int c_deceleration = 0, int c_actual_speed = 0, unsigned int c_num_of_seats = 0, float c_luggage_capacity = 0); //konstruktor nr1
-	~Car(); //destruktor
+	//!konstruktor
+	/*!
+		konstruktor wymagajacy wszystkich parametrow
+	*/
+	Car(string eng_type = NULL, int eng_power = NULL, float eng_capacity = NULL, int eng_torque = NULL, bool eng_run = 0, string mark = NULL,
+		string name = NULL, string colour = NULL, unsigned int max_speed = 0, int min_speed = 0, unsigned int acceleration = 0,
+		unsigned int deceleration = 0, int actual_speed = 0, unsigned int num_of_seats = 0, float luggage_capacity = 0); 
+	//!destruktor
+	/*!
+		destruktor nie robiacy nic poza usunieciem stworzonych obiektow danej klasy
+	*/
+	~Car(); 
 
 #pragma endregion
 
 #pragma region Methods
 
 public:
-	void newCar(); //tworzy nowy samochod
-	void showCarInfo(); //wyswietla informacje o samochodzie
-	void changeColour(); //zmienia kolor samochodu
-	void accelerate(); //przyspiesza
-	void decelerate(); //zwalnia
-	void breakCar() { setActualSpeed(0); } //zeruje predkosc
-	void turnEngineOn() { cars_engine.setRun(true); } //uruchamia silnik
-	void turnEngineOff() { cars_engine.setRun(false); } //wylacza silnik
+	/**tworzy nowy samochod*/
+	void newCar(); 
+	/**wyswietla informacje o samochodzie*/
+	void showCarInfo();
+	/**zmienia kolor samochodu*/
+	void changeColour();
+	/**zwieksza actual_speed o wartosc accelerate o ile actual_speed + accelerate <= max_speed */
+	void accelerate();
+	/**zmniejsza actual_speed o wartosc decelerate o ile actual_speed - decelerate >= min_speed */
+	void decelerate();
+	//zeruje predkosc*/
+	void breakCar() { setActualSpeed(0); }
+	/**uruchamia silnik*/
+	void turnEngineOn() { cars_engine.setRun(true); }
+	/**wylacza silnik*/
+	void turnEngineOff() { cars_engine.setRun(false); }
 
 #pragma endregion
 

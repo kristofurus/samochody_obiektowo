@@ -1,1 +1,5 @@
-﻿  SamochodowoObiektowo.vcxproj -> C:\Users\krist\source\repos\SamochodowoObiektowo\Debug\SamochodowoObiektowo.exe
+﻿  SamochodowoObiektowo.cpp
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(249): warning C4018: '<': signed/unsigned mismatch
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(255): warning C4018: '<': signed/unsigned mismatch
+c:\users\krist\source\repos\samochodowoobiektowo\samochodowoobiektowo\samochodowoobiektowo.cpp(261): warning C4018: '<': signed/unsigned mismatch
+  SamochodowoObiektowo.vcxproj -> C:\Users\krist\source\repos\SamochodowoObiektowo\Debug\SamochodowoObiektowo.exe

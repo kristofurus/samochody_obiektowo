@@ -9,18 +9,18 @@ using namespace std;
 
 #pragma region Constructors and Destructor
 
-Engine::Engine(string s_type, int i_power, float f_capacity, int i_torque, bool b_run)
+Engine::Engine(string type, int power, float capacity, int torque, bool run)
 {
-	type = s_type;
-	power = i_power;
-	capacity = f_capacity;
-	torque = i_torque;
-	run = b_run;
+	this-> type = type;
+	this-> power = power;
+	this-> capacity = capacity;
+	this-> torque = torque;
+	this-> run = run;
 }
 
-Engine::Engine(string s_type)
+Engine::Engine(string type)
 {
-	type = s_type;
+	this-> type = type;
 	power = 0;
 	capacity = 0.0;
 	torque = 0;

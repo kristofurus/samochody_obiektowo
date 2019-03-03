@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <vector>
 
+
 using namespace std;
 
 /* TODO
@@ -26,7 +27,7 @@ zaraz w takim razie sie z tego jeszcze baza danych zrobi normalnie XD baza silni
 i ich laczenie (az sie zadanie na Accessa przypomina)
 */
 
-//odpowiada za wybranie opcji z glownego menu
+//!odpowiada za wybranie opcji z glownego menu
 int mainMenu()
 {
 	int decision;
@@ -53,7 +54,7 @@ int mainMenu()
 	return decision;
 }
 
-//odpowiada za wybranie samochodu do edycji
+//!odpowiada za wybranie samochodu do edycji
 int editCar()
 {
 	int decision;
@@ -74,7 +75,8 @@ int editCar()
 
 int main()
 {	
-	//glowne vectory do przechowywania podanych przez uzytkownika danych
+	//!glowne vectory do przechowywania podanych przez uzytkownika danych
+	//! \param cars sport_cars family_cars
 	vector <Car> cars;
 	vector <SportCar> sport_cars;
 	vector <FamilyCar> family_cars;

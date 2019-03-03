@@ -8,12 +8,12 @@ using namespace std;
 #pragma region Constructor and Destructor
 
 FamilyCar::FamilyCar(string eng_type, int eng_power, float eng_capacity, int eng_torque, bool eng_run,
-	string c_mark, string c_name, string c_colour, unsigned int c_max_speed, int c_min_speed, unsigned int c_acceleration,
-	unsigned int c_deceleration, int c_actual_speed, unsigned int c_num_of_seats, float c_luggage_capacity, int fc_num_of_baby_seats)
-	:Car(eng_type, eng_power, eng_capacity, eng_torque, eng_run, c_mark, c_name, c_colour, c_max_speed, c_min_speed, c_acceleration, c_deceleration,
-		c_actual_speed, c_num_of_seats, c_luggage_capacity)
+	string mark, string name, string colour, unsigned int max_speed, int min_speed, unsigned int acceleration,
+	unsigned int deceleration, int actual_speed, unsigned int num_of_seats, float luggage_capacity, int num_of_baby_seats)
+	:Car(eng_type, eng_power, eng_capacity, eng_torque, eng_run, mark, name, colour, max_speed, min_speed, acceleration, deceleration,
+		actual_speed, num_of_seats, luggage_capacity)
 {
-	num_of_baby_seats = fc_num_of_baby_seats;
+	this -> num_of_baby_seats = num_of_baby_seats;
 }
 
 FamilyCar::~FamilyCar()
@@ -31,7 +31,7 @@ void FamilyCar::setNumOfBabySeats()
 	unsigned int car_num_of_seats = getNumOfSeats();
 	system("cls");
 	cout << "Enter car's number of baby seats: ";
-	while (!correct || num_of_baby_seats > car_num_of_seats || num_of_baby_seats < 0)
+	while (!correct || num_of_baby_seats >= car_num_of_seats || num_of_baby_seats < 0)
 	{
 		cin >> num_of_baby_seats;
 		if (cin.fail())

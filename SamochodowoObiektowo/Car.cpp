@@ -10,20 +10,20 @@ using namespace std;
 
 #pragma region Constructor and Destructor
 
-Car::Car(string eng_type, int eng_power, float eng_capacity, int eng_torque, bool eng_run, string c_mark, string c_name, string c_colour, unsigned int c_max_speed,
-int c_min_speed, unsigned int c_acceleration, unsigned int c_deceleration, int c_actual_speed, unsigned int c_num_of_seats, float c_luggage_capacity)
+Car::Car(string eng_type, int eng_power, float eng_capacity, int eng_torque, bool eng_run, string mark, string name, string colour, unsigned int max_speed,
+int min_speed, unsigned int acceleration, unsigned int deceleration, int actual_speed, unsigned int num_of_seats, float luggage_capacity)
 	:cars_engine(eng_type, eng_power, eng_capacity, eng_torque, eng_run)
 {
-	mark = c_mark;
-	name = c_name;
-	colour = c_colour;
-	max_speed = c_max_speed;
-	min_speed = c_min_speed;
-	acceleration = c_acceleration;
-	deceleration = c_deceleration;
-	actual_speed = c_actual_speed;
-	num_of_seats = c_num_of_seats;
-	luggage_capacity = c_luggage_capacity;
+	this -> mark = mark;
+	this-> name = name;
+	this-> colour = colour;
+	this-> max_speed = max_speed;
+	this-> min_speed = min_speed;
+	this-> acceleration = acceleration;
+	this-> deceleration = deceleration;
+	this-> actual_speed = actual_speed;
+	this-> num_of_seats = num_of_seats;
+	this-> luggage_capacity = luggage_capacity;
 }
 
 Car::~Car()
@@ -190,8 +190,8 @@ void Car::newCar()
 	setName();
 	//ustawienie koloru
 	setColour();
-	min_speed = 0;
 	//ustawienie predkosci maksymalnej
+	min_speed = 0;
 	setMaxSpeed();
 	//ustawienie predkosci minimalnej
 	setMinSpeed();
